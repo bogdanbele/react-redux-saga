@@ -5,7 +5,7 @@ require('dotenv').config();
 /**
  * @param {string} input
  */
-function fetchImages(input) {
+function fetchImages() {
     // https://www.flickr.com/services/api/flickr.photos.search.html
 
     return axios({
@@ -18,7 +18,7 @@ function fetchImages(input) {
             format: 'json',
             nojsoncallback: 1,
             page: 1,
-            per_page: 10,
+            per_page: 12,
         }
     }).then(result => {
         console.log(result)

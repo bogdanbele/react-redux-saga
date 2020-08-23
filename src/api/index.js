@@ -40,7 +40,7 @@ export function fetchPhotos(searchTerm, page, elementsPerPage) {
             nojsoncallback: 1,
             page: page,
             per_page: elementsPerPage,
-            text: searchTerm ? searchTerm : 'welcome'
+            text: searchTerm ? searchTerm : 'castle'
         }
     }).then(result => {
         return result

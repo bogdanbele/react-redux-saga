@@ -66,3 +66,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# Optional Steps:
+
+## Redux Devtools:
+
+1. For Chrome
+- from Chrome Web Store;
+- or download extension.zip from last releases, unzip, open chrome://extensions url and turn on developer mode from top left and then click; on Load Unpacked and select the extracted folder for use
+- or build it with npm i && npm run build:extension and load the extension's folder ./build/extension;
+- or run it in dev mode with npm i && npm start and load the extension's folder ./dev.
+2. For Firefox
+- from Mozilla Add-ons;
+- or build it with npm i && npm run build:firefox and load the extension's folder ./build/firefox (just select a file from inside the dir).
+3. For Electron
+- just specify REDUX_DEVTOOLS in electron-devtools-installer.
+4. For other browsers and non-browser environment
+- use remote-redux-devtools.

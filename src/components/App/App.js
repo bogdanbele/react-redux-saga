@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
+import fetchImages from "../../api";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
         >
           Learn React
         </a>
+
+        <button onClick={() => fetchImages('c')}>
+          Click
+        </button>
       </header>
     </div>
   );

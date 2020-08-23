@@ -3,7 +3,7 @@ import actionTypes from "./actionTypes";
 const initialState = {
     page: 1,
     totalPages: null,
-    elementsPerPage: 20,
+    elementsPerPage: 25,
     totalElements: null,
 };
 
@@ -12,7 +12,7 @@ const setPagination = (state, { payload: { pagination } }) => {
         ...state,
         page: pagination.page,
         totalPages: pagination.totalPages,
-        elementsPerPage: pagination.element,
+        elementsPerPage: pagination.elementsPerPage,
         totalElements: pagination.totalElements,
     };
 };

@@ -8,31 +8,40 @@ export default function Photo
          imageUrl,
          ownerName,
          title,
-     }) {
+     })
+{
 
 
-    const useStyles = makeStyles(() => ({
-        root: {
-            display: 'flex',
-            width: '30%',
-            padding: '1%',
-        },
-        card: {
-            padding: 4,
-            margin: 'auto',
-            width: '100%',
-        },
-        image: {
-            height: 0,
-            paddingTop: '56.25%', // 16:9
-        },
-        img: {
-            margin: 'auto',
-            display: 'block',
-            maxWidth: '100%',
-            maxHeight: '100%',
-        },
-    }));
+    const useStyles = makeStyles((theme) => (
+        {
+            root: {
+                display: 'flex',
+                width: '30%',
+                padding: '1%',
+                [theme.breakpoints.down('sm')]: {
+                    width: '60%',
+                },
+            },
+            card: {
+                padding: 4,
+                margin: 'auto',
+                width: '100%',
+            },
+            cardHeader: {
+                width: '100%'
+            },
+            image: {
+                height: 0,
+                paddingTop: '98.25%', // 16:9
+            },
+            img: {
+                margin: 'auto',
+                display: 'block',
+                maxWidth: '100%',
+                maxHeight: '100%',
+            },
+        }
+    ));
 
     const classes = useStyles();
 
@@ -40,22 +49,28 @@ export default function Photo
         <div className={classes.root}>
             <Card className={classes.card}>
                 <CardHeader
+                    className={classes.cardHeader}
                     title={ownerName}
                     subheader={title}
                     titleTypographyProps={{
+                        variant : 'subtitle1',
                         style: {
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
-                            minHeight: '1rem'
+                            minHeight: '1rem',
+                            maxWidth: '100%',
+                            fontSize: '0,8rem'
                         }
                     }}
                     subheaderTypographyProps={{
+                        variant : 'caption',
                         style: {
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
-                            minHeight: '1rem'
+                            maxWidth: '100%',
+                            fontSize: '0,9rem'
                         }
                     }}
                 />
@@ -65,8 +80,8 @@ export default function Photo
     )
 }
 
-
 /*
+
 {
     datetaken: "2020-08-11 11:47:46"
     datetakengranularity: "0"

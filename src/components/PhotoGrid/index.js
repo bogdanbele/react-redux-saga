@@ -1,18 +1,18 @@
 import {connect} from 'react-redux';
 import PhotoGrid from "./PhotoGrid";
-import * as selectors from "../../state/photos/pagination/selectors"
 import {
-    setPagination,
-    setTotalElements,
     setPerPage,
-    setTotalPages,
     setPage,
 } from '../../state/photos/pagination/actionCreators'
 import {fetchPhotos} from "../../state/photos/list/actionCreators";
 import {getPhotosList} from "../../state/photos/list/selectors";
+import {getPage, getElementsPerPage, getTotalElements} from "../../state/photos/pagination/selectors"
 
 const mapStateToProps = (state) => ({
-    photosList: getPhotosList(state)
+    photosList: getPhotosList(state),
+    getTotalElements: getTotalElements(state),
+    getPage: getPage(state),
+    getElementsPerPage: getElementsPerPage(state)
 })
 
 const mapDispatchToProps = {

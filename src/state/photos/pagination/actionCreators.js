@@ -5,9 +5,9 @@ export const setPagination = (pagination) => ({
     payload: {pagination},
 });
 
-export const setPerPage = (pageSize) => ({
+export const setPerPage = (elementsPerPage) => ({
     type: actionTypes.setPerPage,
-    payload: {pageSize},
+    payload: {elementsPerPage},
 });
 
 export const setPage = (page) => ({

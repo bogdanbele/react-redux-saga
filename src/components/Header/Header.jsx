@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => (
     }
 ));
 
-export default function Header() {
+export default function Header({changeMode, mode}) {
     const classes = useStyles();
 
     return (
@@ -33,9 +33,9 @@ export default function Header() {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        Latest Flickr Pictures
+                        { (mode === 'getRecent' ? <p>Latest Flickr Pictures</p> : <p>Search</p> )}
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit" onClick={() => changeMode()}>Change Mode</Button>
                 </Toolbar>
             </AppBar>
         </div>

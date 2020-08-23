@@ -1,7 +1,7 @@
 import actionTypes from "./actionTypes";
 
 const initialState = {
-    page: 1,
+    page: 0,
     totalPages: null,
     elementsPerPage: 25,
     totalElements: null,
@@ -13,7 +13,7 @@ const setPagination = (state, { payload: { pagination } }) => {
         page: pagination.page,
         totalPages: pagination.totalPages,
         elementsPerPage: pagination.elementsPerPage,
-        totalElements: pagination.totalElements,
+        totalElements: parseInt(pagination.totalElements),
     };
 };
 

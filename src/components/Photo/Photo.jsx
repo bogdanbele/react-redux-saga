@@ -1,7 +1,6 @@
 import React from "react";
-import {Card, CardHeader, CardContent, CardMedia} from '@material-ui/core';
+import {Card, CardHeader, CardMedia} from '@material-ui/core';
 import {makeStyles} from "@material-ui/styles";
-import Paper from "@material-ui/core/Paper";
 
 export default function Photo
     ({
@@ -32,7 +31,7 @@ export default function Photo
             },
             image: {
                 height: 0,
-                paddingTop: '98.25%', // 16:9
+                paddingTop: '98.25%',
             },
             img: {
                 margin: 'auto',
@@ -79,27 +78,3 @@ export default function Photo
         </div>
     )
 }
-
-/*
-
-{
-    datetaken: "2020-08-11 11:47:46"
-    datetakengranularity: "0"
-    datetakenunknown: "0"
-    dateupload: "1598194237"
-    farm: 66
-    height_n: 213
-    id: "50259130597"
-    isfamily: 0
-    isfriend: 0
-    ispublic: 1
-    owner: "127470263@N08"
-    ownername: "bellemma39"
-    secret: "968a428b2e"
-    server: "65535"
-    title: "5A7A9012_DxO"
-    url_n: "https://live.staticflickr.com/65535/50259130597_968a428b2e_n.jpg"
-    views: "0"
-    width_n: 320
-}
- */

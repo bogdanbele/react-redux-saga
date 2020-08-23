@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import PhotoGrid from "../PhotoGrid";
+import RecentPhotos from "../RecentPhotos";
 import Header from "../Header/Header";
 import {createMuiTheme} from "@material-ui/core";
 import orange from "@material-ui/core/colors/orange";
 import {ThemeProvider} from "@material-ui/styles";
 import {blue} from "@material-ui/core/colors";
+import SearchPhotos from "../SearchPhotos";
 
 function App() {
+
+    const [mode, setMode] = useState('getRecent')
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
-                <Header/>
-                <PhotoGrid/>
+                <Header
+                    changeMode={() => setMode(mode === 'getRecent' ? 'search' : 'getRecent')}
+                    mode={mode}/>
+                {
+                    (mode === 'getRecent') ? <RecentPhotos/> : <SearchPhotos/>
+                }
             </div>
         </ThemeProvider>
     );

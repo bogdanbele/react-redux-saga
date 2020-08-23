@@ -1,11 +1,15 @@
 import {combineReducers} from 'redux';
 
-import pagination from './pagination/reducer'
-import list from './list/reducer'
+import recentPhotos from './recentPhotos/reducer'
+import recentPhotosPagination from './recentPhotosPagination/reducer'
+import searchPhotos from './searchPhotos/reducer'
+import searchPhotosPagination from './searchPhotosPagination/reducer'
 
 const rootReducers = combineReducers({
-    pagination,
-    list
+    recentPhotos,
+    recentPhotosPagination,
+    searchPhotos,
+    searchPhotosPagination
 });
 
 export default (state, action) => rootReducers(state, action)

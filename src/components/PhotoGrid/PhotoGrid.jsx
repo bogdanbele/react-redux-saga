@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback, useEffect, useMemo} from "react";
 import PropTypes from "prop-types"
 import Photo from "../Photo/Photo";
 import {makeStyles} from "@material-ui/styles";
@@ -45,8 +45,6 @@ function PhotoGrid
         }
     ))
 
-    console.log(getTotalElements)
-
     const classes = useStyles();
 
     const fetchPhotosCallback = useCallback(() => {
@@ -55,25 +53,33 @@ function PhotoGrid
 
 
     useEffect(() => {
-        fetchPhotos(getPage, getElementsPerPage);
+        fetchPhotos();
     }, [fetchPhotos, getPage, getElementsPerPage])
 
     const setPageCallback = useCallback((page) => {
-        console.log('x')
-        console.log(page)
         setPage(page)
     }, [setPage])
 
     const setPerPageCallback = useCallback((pageSize) => {
-        console.log(pageSize)
         setPerPage(pageSize)
-
     },[setPerPage])
 
     const fallbackImageUrl = 'https://previews.123rf.com/images/grgroup/grgroup1904/grgroup190403353/124023971-oops-comic-words-in-speech-bubble-isolated-icon-vector-illustration-design.jpg';
+    
+    const PaginationComponent = () =>
+        <TablePagination
+            component="div"
+            count={getTotalElements ?  getTotalElements : 0}
+            page={getPage ? getPage : 0}
+            onChangePage={(e, page) => setPageCallback(page)}
+            rowsPerPage={getElementsPerPage ? getElementsPerPage : 0}
+            onChangeRowsPerPage={(e, x) => setPerPageCallback(x.props.value)}
+        />;
+    
     return (
         <React.Fragment>
             <div className={classes.wrapper}>
+                <PaginationComponent/>
                 <Button
                     className={classes.button}
                     variant="contained"
@@ -90,14 +96,7 @@ function PhotoGrid
                         )}
 
                 </Paper>
-                <TablePagination
-                    component="div"
-                    count={getTotalElements ?  getTotalElements : 0}
-                    page={getPage ? getPage : 0}
-                    onChangePage={(e, page) => setPageCallback(page)}
-                    rowsPerPage={getElementsPerPage ? getElementsPerPage : 0}
-                    onChangeRowsPerPage={(e, x) => setPerPageCallback(x.props.value)}
-                />
+                <PaginationComponent/>
             </div>
         </React.Fragment>
 

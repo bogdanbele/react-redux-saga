@@ -10,8 +10,6 @@ require('dotenv').config();
  */
 function fetchImages(page = 0, elementsPerPage = 25) {
     // https://www.flickr.com/services/api/flickr.photos.search.html
-    console.log(page)
-    console.log(elementsPerPage)
     return axios({
         method: 'GET',
         url: 'https://api.flickr.com/services/rest',
@@ -25,7 +23,6 @@ function fetchImages(page = 0, elementsPerPage = 25) {
             per_page: elementsPerPage,
         }
     }).then(result => {
-        console.log(result)
         return result
     });
 }

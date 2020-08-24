@@ -47,10 +47,10 @@ function RecentPhotos
     const PaginationComponent = () =>
         <TablePagination
             component="div"
-            count={getTotalElements ?  getTotalElements : 0}
-            page={getPage ? getPage : 0}
+            count={getTotalElements ?  getTotalElements : 25}
+            page={getPage ? getPage : 1}
             onChangePage={(e, page) => setPageCallback(page)}
-            rowsPerPage={getElementsPerPage ? getElementsPerPage : 0}
+            rowsPerPage={getElementsPerPage ? getElementsPerPage : 25}
             onChangeRowsPerPage={(e, x) => setPerPageCallback(x.props.value)}
         />;
     

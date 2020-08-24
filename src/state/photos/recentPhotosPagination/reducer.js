@@ -1,10 +1,10 @@
 import actionTypes from "./actionTypes";
 
 const initialState = {
-    page: 0,
+    page: 1,
     totalPages: null,
     elementsPerPage: 25,
-    totalElements: null,
+    totalElements: 50,
 };
 
 const setPagination = (state, {payload: {pagination}}) => {

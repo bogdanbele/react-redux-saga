@@ -4,8 +4,8 @@ require('dotenv').config();
 
 /**
  *
- * @param page
- * @param elementsPerPage
+ * @param {number} page
+ * @param {number} elementsPerPage
  * @returns {Promise<AxiosResponse<any>>}
  */
 export function fetchRecentPhotos(page = 0, elementsPerPage = 25) {
@@ -27,6 +27,13 @@ export function fetchRecentPhotos(page = 0, elementsPerPage = 25) {
     });
 }
 
+/**
+ *
+ * @param {string} searchTerm
+ * @param {number} page
+ * @param {number} elementsPerPage
+ * @returns {Promise<AxiosResponse<any>>}
+ */
 export function fetchPhotos(searchTerm, page, elementsPerPage) {
     // https://www.flickr.com/services/api/flickr.photos.search.html
     return axios({
